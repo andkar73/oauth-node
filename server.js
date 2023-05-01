@@ -5,6 +5,10 @@ const express = require("express");
 const helmet = require("helmet");
 
 const PORT = 3000;
+const config = {
+  CLIENT_ID:
+  CLIENT_SECRET:
+
 const app = express();
 
 app.use(helmet());
@@ -44,7 +48,3 @@ https.createServer(
     console.log(`Listen to port ${PORT}`);
   });
 
-
-  // 98473473254-v7qtdqqi0ne4o7nnd744gr6ravbuj3c7.apps.googleusercontent.com
-
-  // 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
