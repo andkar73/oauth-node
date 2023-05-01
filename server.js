@@ -9,7 +9,23 @@ const app = express();
 
 app.use(helmet());
 
-app.get("/secret", (req, res) => {
+function checkLoggedIn(req, res, next) {
+  const isLoggedIn = true; //@TDO
+  if (!isLoggedIn) {
+    return res.status(401).json({
+      error: 'You must log in!'
+    });
+  }
+  next();
+}
+
+app.get('/auth/google/', (req, res) => {});
+
+app.get('/auth/google/callback', (req, res) => {});
+
+app.get('/auth/logout', (req, res) => {});
+
+app.get("/secret", checkLoggedIn, (req, res) => {
   return res.send("Your personal secret value is 42");
 });
 
@@ -27,3 +43,8 @@ https.createServer(
   .listen(PORT, () => {
     console.log(`Listen to port ${PORT}`);
   });
+
+
+  // 98473473254-v7qtdqqi0ne4o7nnd744gr6ravbuj3c7.apps.googleusercontent.com
+
+  // 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
